@@ -6,8 +6,8 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
-public class FrameGame extends JFrame {
-	public FrameGame(){
+public class JFrameGame extends JFrame {
+	public JFrameGame(){
 		//设置标题
 		this.setTitle("java俄罗斯方块");
 		
@@ -33,7 +33,7 @@ public class FrameGame extends JFrame {
 		this.setLocation(w,h);
 		
 		//设置默认panel
-		this.setContentPane(new PanelGame());
+		this.setContentPane(new JPanelGame());
 		
 	}
 

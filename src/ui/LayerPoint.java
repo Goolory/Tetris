@@ -2,9 +2,9 @@ package ui;
 
 import java.awt.Graphics;
 
-public class LayPoint extends Lay {
+public class LayerPoint extends Layer {
 
-	public LayPoint(int x, int y, int w, int h) {
+	public LayerPoint(int x, int y, int w, int h) {
 		super(x, y, w, h);
 		// TODO Auto-generated constructor stub
 	}
