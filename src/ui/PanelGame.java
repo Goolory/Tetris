@@ -11,6 +11,7 @@ public class PanelGame extends JPanel{
 	private Lay[] lays=null;
 	public PanelGame(){
 		lays=new Lay[]{
+				new LayBackground(0,0,0,0),
 				new LayDataBase(40,32,334,279),
 				new LayDisk(40,343,334,279),
 				new LayGame(414,32,334,590),

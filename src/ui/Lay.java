@@ -7,6 +7,8 @@ import javax.swing.ImageIcon;
 
 //绘制窗口
 public abstract class Lay {
+	//内边距
+	protected static final int PADDING=16;
 	//背景图
 	private static final int SIZE=7;
 	
@@ -15,15 +17,15 @@ public abstract class Lay {
 	private static  int WINDOW_H=WINDOW_IMG.getHeight(null);
 	private static  int WINDOW_W=WINDOW_IMG.getWidth(null);
 	//窗口左上角x坐标
-	private int x;
+	protected int x;
 	//窗口左上角y坐标
-	private int y;
+	protected int y;
 	//宽
-	private int w;
+	protected int w;
 	//高
-	private int h;
+	protected int h;
 	
-	public Lay(int x,int y,int w,int h){
+	protected Lay(int x,int y,int w,int h){
 		this.x=x;
 		this.y=y;
 		this.w=w;
@@ -33,7 +35,7 @@ public abstract class Lay {
 	
 	//创建窗口
 	
-	public void createWindow(Graphics g){
+	protected void createWindow(Graphics g){
 		
 		//左上
 		g.drawImage(WINDOW_IMG, x, y, x+SIZE, y+SIZE, 0, 0, SIZE, SIZE, null);
@@ -55,5 +57,6 @@ public abstract class Lay {
 		g.drawImage(WINDOW_IMG, x+SIZE, y+SIZE, x+w-SIZE, y+h-SIZE, SIZE, SIZE, WINDOW_W-SIZE, WINDOW_H-SIZE, null);
 		
 	}
+	//刷新游戏具体界面
 	abstract public void paint(Graphics g);
 }
