@@ -10,9 +10,16 @@ import org.dom4j.io.SAXReader;
 public class GameConfig {
 	/*窗口高度*/
 	private int width;
+//	窗口高度
 	private int height;
+//	边框大小
 	private int windowSize;
+//	内边距
 	private int padding;
+//	窗口title
+	private String title;
+//	窗口拔高
+	private int windowUp;
 	
 	private List<LayerConfig> layersConfig;
 	
@@ -38,6 +45,8 @@ public class GameConfig {
 		this.height=Integer.parseInt(frame.attributeValue("height"));
 		this.windowSize=Integer.parseInt(frame.attributeValue("windowSize"));
 		this.padding=Integer.parseInt(frame.attributeValue("padding"));
+		this.title=(frame.attributeValue("title"));
+		this.windowUp=Integer.parseInt(frame.attributeValue("windowUp"));
 		
 		List<Element> layers= frame.elements("layer");
 		
@@ -85,6 +94,14 @@ public class GameConfig {
 
 	public int getPadding() {
 		return padding;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public int getWindowUp(){
+		return windowUp;
 	}
 
 	public List<LayerConfig> getLayersConfig() {

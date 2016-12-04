@@ -5,17 +5,23 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import config.ConfigFactory;
+import config.GameConfig;
+
 @SuppressWarnings("serial")
 public class JFrameGame extends JFrame {
-	public JFrameGame(){
+	public JFrameGame(JPanelGame panelGame){
+		
+		//获取游戏配置
+		GameConfig cfg =ConfigFactory.getGameConfig();
 		//设置标题
-		this.setTitle("java俄罗斯方块");
+		this.setTitle(cfg.getTitle());
 		
 		//设置默认的关闭属性，程序结束
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//设置窗口大小
-		this.setSize(1200, 700);
+		this.setSize(cfg.getWidth(), cfg.getHeight());
 		
 		//设置不能改变窗口大小
 		this.setResizable(false);
@@ -33,7 +39,9 @@ public class JFrameGame extends JFrame {
 		this.setLocation(w,h);
 		
 		//设置默认panel
-		this.setContentPane(new JPanelGame());
+		this.setContentPane(panelGame);
+		//默认改窗口为显示
+		this.setVisible(true);
 		
 	}
 

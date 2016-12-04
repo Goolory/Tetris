@@ -1,2 +1,7 @@
 /ui/
 /config/
+/control/
+/service/
+/dto/
+/entity/
+/main/
