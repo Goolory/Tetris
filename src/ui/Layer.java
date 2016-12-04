@@ -1,5 +1,7 @@
 package ui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -58,7 +60,10 @@ public abstract class Layer {
 	 * 数字切片高度
 	 */
 	private static final int IMG_NUMBER_H = IMG_NUMBER.getHeight(null); 
-	
+	/**
+	 * 槽值默认字体
+	 */
+	private static final Font DEF_FONT=new Font("黑体",Font.BOLD,20);
 	
 	//创建窗口
 	
@@ -108,6 +113,33 @@ public abstract class Layer {
 					bit*IMG_NUMBER_W, 0, (bit+1)*IMG_NUMBER_W, IMG_NUMBER_H, null);
 		}
 		
+		
+	}
+	
+	/**
+	 * @param x 槽值显示的左上角x坐标
+	 * @param y 槽值显示的左上角y坐标
+	 * @param w 槽宽
+	 * @param title 槽中显示的字
+	 * @param number 槽中显示的数字
+	 * @param color 值槽背景色
+	 * @param value 槽的值
+	 * @param maxValue 槽最大值
+	 * @param g 画笔
+	 */
+	public void drawRect(int x,int y,int w ,String title, String number,Color color, int value,int maxValue,Graphics g ){
+		g.setColor(Color.BLACK);
+		g.fillRect(x, y, w, 32);
+		g.setColor(Color.WHITE);
+		g.fillRect(x+1, y+1, w-2, 30);
+		g.setColor(color);
+		
+		int vw = value*(w-2)/maxValue;
+		g.fillRect(x+2, y+2, vw, 28);
+		g.setColor(Color.BLACK);
+		g.setFont(DEF_FONT);
+		g.drawString(title,x+20,y+24);
+		g.drawString(number,x+200,y+24);
 		
 	}
 	

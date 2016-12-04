@@ -22,7 +22,7 @@ public class LayerLevel extends Layer {
 //		´°¿Ú±êÌâ
 		g.drawImage(IMG_LEVEL, this.x+PADDING, this.y+PADDING, null);
 		
-		this.drowNumber(40,64,0, g);
+		this.drowNumber(40,64,this.dto.getNowlevel(), g);
 	}
 	
 	

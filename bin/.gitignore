@@ -1,7 +1,4 @@
 /ui/
-/config/
 /control/
+/dao/
 /service/
-/dto/
-/entity/
-/main/

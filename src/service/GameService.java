@@ -1,9 +1,11 @@
 package service;
 
 import java.awt.Point;
+import java.util.List;
 import java.util.Random;
 
 import dto.GameDto;
+import dto.Player;
 import entity.GameAct;
 
 public class GameService {
@@ -69,5 +71,32 @@ public class GameService {
 //	º¸≈Ãøÿ÷∆”““∆
 	public void keyRight() {
 			this.dto.getGameAct().move(1, 0,this.dto.getGameMap());
+	}
+	
+	
+	
+	 
+//==========≤‚ ‘==============================
+	public void testKeyDown() {
+		// TODO Auto-generated method stub
+		int point =this.dto.getNowPoint();
+		int rmLine= this.dto.getNowRemoveLine();
+		int ly=this.dto.getNowlevel();
+		point+=10;
+		rmLine+=1;
+		if(rmLine%20==0){
+			ly++;
+		}
+		this.dto.setNowPoint(point);
+		this.dto.setNowRemoveLine(rmLine);
+		this.dto.setNowlevel(ly);
+	}
+	
+	public void setDbRecode(List<Player> players){
+		this.dto.setDbRecode(players);
+	}
+	public void setDiskRecode(List<Player> players){
+		this.dto.setDiskRecode(players);
+		
 	}
 }
