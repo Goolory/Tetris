@@ -33,7 +33,7 @@ public class LayerGame extends Layer {
 		for(int x = 0;x < map.length;x++){
 			for(int y = 0; y < map[x].length; y++){
 				if(map[x][y]){
-					drawActByPoint(x,y,0, g);
+					drawActByPoint(x,y,dto.getNowlevel()%7, g);
 				}
 			}
 		}

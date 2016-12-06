@@ -65,12 +65,12 @@ public class GameService {
 
 //	¼üÅÌ¿ØÖÆ×óÒÆ
 	public void keyLeft() {
-			this.dto.getGameAct().move(-1, 0,this.dto.getGameMap());
+		this.dto.getGameAct().move(-1, 0,this.dto.getGameMap());
 	}
 
 //	¼üÅÌ¿ØÖÆÓÒÒÆ
 	public void keyRight() {
-			this.dto.getGameAct().move(1, 0,this.dto.getGameMap());
+		this.dto.getGameAct().move(1, 0,this.dto.getGameMap());
 	}
 	
 	

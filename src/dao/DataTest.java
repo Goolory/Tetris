@@ -11,15 +11,13 @@ public class DataTest implements Data{
 	public List<Player> loadData() {
 		List<Player> players=new ArrayList<Player>();
 		players.add(new Player("刘明",1000));
-		players.add(new Player("刘明",800));
-		players.add(new Player("刘明",700));
-		players.add(new Player("刘明",500));
-		players.add(new Player("刘明",400));
+		players.add(new Player("刘明",1800));
+		players.add(new Player("刘明",2700));
 		return players;
 	}
 
 	@Override
-	public void saveData(List<Player> players) {
+	public void saveData(Player player) {
 		// TODO Auto-generated method stub
 		System.out.println();
 		

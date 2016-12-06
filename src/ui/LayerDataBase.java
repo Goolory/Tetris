@@ -41,7 +41,7 @@ public class LayerDataBase extends Layer{
 		List<Player> players=this.dto.getDbRecode();
 		for(int i=0;i<MAX_ROW;i++){
 			Player p = players.get(i);
-			drawRect(this.x+PADDING*2,this.y+PADDING+IMG_DB_H+i*(LINE_H+12)+15,this.w-PADDING*4 ,p.getName(), Integer.toString(p.getPoint()),DEF_BGCOLOR, p.getPoint(),3000, g );
+			drawRect(this.x+PADDING*2,this.y+PADDING+IMG_DB_H+i*(LINE_H+12)+15,this.w-PADDING*4 ,p.getName(), Integer.toString(p.getPoint()),DEF_BGCOLOR, p.getPoint(),10000, g );
 		}
 	}
 

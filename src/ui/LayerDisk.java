@@ -3,8 +3,11 @@ package ui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.List;
 
 import javax.swing.ImageIcon;
+
+import dto.Player;
 
 public class LayerDisk extends Layer {
 	
@@ -34,8 +37,9 @@ public class LayerDisk extends Layer {
 	public void paint(Graphics g){
 		this.createWindow(g);
 		g.drawImage(IMG_DISK, this.x+PADDING, this.y+PADDING, null);
+		List<Player> p=this.dto.getDiskRecode();
 		for(int i=0;i<MAX_ROW;i++){
-			drawRect(this.x+PADDING*2,this.y+PADDING+IMG_DB_H+i*(LINE_H+12)+15,this.w-PADDING*4 ,"ÕÅÈý", "300",DEF_BGCOLOR, 300,3000, g );
+			drawRect(this.x+PADDING*2,this.y+PADDING+IMG_DB_H+i*(LINE_H+12)+15,this.w-PADDING*4 ,p.get(i).getName(), Integer.toString(p.get(i).getPoint()),DEF_BGCOLOR, p.get(i).getPoint(),10000, g );
 		}
 	}
 

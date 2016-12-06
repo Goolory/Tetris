@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import entity.GameAct;
@@ -64,6 +66,7 @@ public class GameDto {
 	}
 
 	public void setDbRecode(List<Player> dbRecode) {
+		setFillRecode(dbRecode);
 		this.dbRecode = dbRecode;
 	}
 
@@ -72,7 +75,20 @@ public class GameDto {
 	}
 
 	public void setDiskRecode(List<Player> diskRecode) {
+		setFillRecode(diskRecode);
 		this.diskRecode = diskRecode;
+	}
+	
+	private List<Player> setFillRecode(List<Player> players){
+		if(players==null){
+			players=new ArrayList<Player>();
+		}
+		while(players.size()<5){
+			players.add(new Player("No Data",0));
+		}
+//		ÅÅÐò
+		Collections.sort(players);
+		return players;
 	}
 
 	public boolean[][] getGameMap() {

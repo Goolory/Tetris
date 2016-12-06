@@ -1,6 +1,8 @@
 package control;
 
 import dao.Data;
+import dao.DataBase;
+import dao.DataDisk;
 import dao.DataTest;
 import service.GameService;
 import ui.JPanelGame;
@@ -35,11 +37,11 @@ public class GameControl {
 		this.gameService=gameService;
 		
 //		从数据接口A获取数据
-		dataA = new DataTest();
+		dataA = new DataBase();
 		//设置数据至画面
 		this.gameService.setDbRecode(dataA.loadData());
 //		从数据接口B获取数据
-		dataB = new DataTest();
+		dataB = new DataDisk();
 		//设置数据至画面
 		this.gameService.setDiskRecode(dataB.loadData());
 	}
