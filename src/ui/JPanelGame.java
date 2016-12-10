@@ -1,12 +1,14 @@
 package ui;
 
 import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import config.ConfigFactory;
@@ -15,16 +17,25 @@ import config.LayerConfig;
 import control.GameControl;
 import control.PlayerControl;
 import dto.GameDto;
-import service.GameService;
 
 public class JPanelGame extends JPanel{
 	
 	private List<Layer> layers=null;
+	private static  ImageIcon IMG_BTN_STATRT = new ImageIcon("graphics/string/strat.png");
+	private static  ImageIcon IMG_BTN_CONTROL = new ImageIcon("graphics/string/config.png");
+	private JButton btnStart;
+	
+	private JButton btnControl;
 	
 	private GameDto dto=null;
+	
+	private GameControl gameControl=null;
+	
 	public JPanelGame(GameDto dto){
 		
 		this.dto=dto;
+		//设置布局管理器为自由布局
+		this.setLayout(null);
 		//初始化层
 		initLayer();
 //		初始化组件
@@ -32,6 +43,8 @@ public class JPanelGame extends JPanel{
 		
 	}
 	
+
+
 	/**
 	 * @param control
 	 * 
@@ -44,6 +57,28 @@ public class JPanelGame extends JPanel{
 	 * 初始化组件
 	 */
 	private void initComponent(){
+		
+		this.btnStart=new JButton(IMG_BTN_STATRT);
+		btnStart.setBounds(828, 76, 105, 40);
+		
+		this.add(btnStart);
+		this.btnControl=new JButton(IMG_BTN_CONTROL);
+		btnControl.setBounds(968, 76, 105, 40);
+		this.add(btnControl);
+		//为设置按钮添加事件监听
+		this.btnControl.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				gameControl.showSetControl();
+				
+			}
+		});
+		//为开始按钮添加事件监听
+		this.btnStart.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				gameControl.start();
+			}
+			
+		});
 	}
 	
 	/**
@@ -98,5 +133,12 @@ public class JPanelGame extends JPanel{
 		//返回焦点
 		this.requestFocus();
 	}
+
+
+
+	public void setGameControl(GameControl gameControl) {
+		this.gameControl = gameControl;
+	}
+	
 
 }

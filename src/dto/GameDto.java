@@ -47,6 +47,8 @@ public class GameDto {
 	 */
 	private int nowRemoveLine;
 	
+	private boolean start;
+	
 	public GameDto(){
 		dtoInit();
 		
@@ -139,6 +141,15 @@ public class GameDto {
 	public void setNowRemoveLine(int nowRemoveLine) {
 		this.nowRemoveLine = nowRemoveLine;
 	}
+
+	public boolean isStart() {
+		return start;
+	}
+
+	public void setStart(boolean start) {
+		this.start = start;
+	}
+	
 	
 	
 }

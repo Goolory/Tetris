@@ -14,26 +14,27 @@ public class LayerGame extends Layer {
 
 	public LayerGame(int x, int y, int w, int h) {
 		super(x, y, w, h);
-		// TODO Auto-generated constructor stub
 	}
 	public void paint(Graphics g){
 		this.createWindow(g);
 		
-		Point[] points = this.dto.getGameAct().getActPoints();
-//		获得方块类型编号(0-6)
-		int typeCode = this.dto.getGameAct().getTypeCode();
-		
-		//打印方块
-		for(int i=0;i<points.length;i++){
-			drawActByPoint(points[i].x,points[i].y,typeCode+1, g);
-		}
-		
-		//打印地图
-		boolean[][] map =this.dto.getGameMap();
-		for(int x = 0;x < map.length;x++){
-			for(int y = 0; y < map[x].length; y++){
-				if(map[x][y]){
-					drawActByPoint(x,y,dto.getNowlevel()%7, g);
+		if(this.dto.getGameAct()!=null){
+			Point[] points = this.dto.getGameAct().getActPoints();
+//			获得方块类型编号(0-6)
+			int typeCode = this.dto.getGameAct().getTypeCode();
+			
+			//打印方块
+			for(int i=0;i<points.length;i++){
+				drawActByPoint(points[i].x,points[i].y,typeCode+1, g);
+			}
+			
+			//打印地图
+			boolean[][] map =this.dto.getGameMap();
+			for(int x = 0;x < map.length;x++){
+				for(int y = 0; y < map[x].length; y++){
+					if(map[x][y]){
+						drawActByPoint(x,y,dto.getNowlevel()%7, g);
+					}
 				}
 			}
 		}

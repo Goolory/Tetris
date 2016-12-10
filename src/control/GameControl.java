@@ -4,7 +4,9 @@ import dao.Data;
 import dao.DataBase;
 import dao.DataDisk;
 import dao.DataTest;
+import dto.GameDto;
 import service.GameService;
+import ui.JFrameSet;
 import ui.JPanelGame;
 
 /**接受玩家键盘事件
@@ -32,6 +34,9 @@ public class GameControl {
 	 */
 	private GameService gameService;
 	
+	
+	private JFrameSet frameSet;
+	
 	public GameControl(JPanelGame panelGame,GameService gameService){
 		this.panelGame=panelGame;
 		this.gameService=gameService;
@@ -44,6 +49,8 @@ public class GameControl {
 		dataB = new DataDisk();
 		//设置数据至画面
 		this.gameService.setDiskRecode(dataB.loadData());
+		
+		this.frameSet=new JFrameSet(this,gameService.getDto());
 	}
 
 
@@ -62,7 +69,7 @@ public class GameControl {
 	public void keyDown() {
 		this.gameService.keyDown();
 		
-		this.gameService.testKeyDown();
+		//this.gameService.testKeyDown();
 		this.panelGame.repaint();
 	}
 
@@ -81,5 +88,23 @@ public class GameControl {
 	public void keyRight() {
 		this.gameService.keyRight();
 		this.panelGame.repaint();
+	}
+
+
+	public void showSetControl() {
+		this.frameSet.setVisible(true);
+		
+	}
+
+
+	public void setOver() {
+		this.panelGame.repaint();
+	}
+
+
+	public void start() {
+		this.gameService.startMainThread();
+		this.panelGame.repaint();
+		
 	}
 }

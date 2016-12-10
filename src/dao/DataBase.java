@@ -14,7 +14,7 @@ public class DataBase implements Data {
 	
 	private static String DRIVER= "com.mysql.jdbc.Driver"; 
 	
-	private static String DB_URL="jdbc:mysql://yoogs.cn:3306/game_tetris";  
+	private static String DB_URL="jdbc:mysql://localhost:3306/game_tetris";  
 	
 	private static String BD_USER="gm";
 	

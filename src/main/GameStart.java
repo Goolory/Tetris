@@ -17,6 +17,8 @@ public class GameStart {
 		GameService service =new GameService(dto);
 //		创建游戏控制器（链接游戏面板与游戏逻辑快）
 		GameControl gameControl =new GameControl(panel,service);
+//		将游戏控制器交给panel
+		panel.setGameControl(gameControl);
 //		创建玩家控制器
 		PlayerControl control = new PlayerControl(gameControl);
 //		安装玩家控制器

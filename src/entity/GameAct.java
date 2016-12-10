@@ -101,6 +101,7 @@ public class GameAct {
 				return;
 			}
 		}
+		//·½¿éĞı×ª
 		for(int i=1;i<actPoints.length;i++){
 			int newX = actPoints[0].y + actPoints[0].x - actPoints[i].y;
 			int newY = actPoints[0].y - actPoints[0].x + actPoints[i].x;

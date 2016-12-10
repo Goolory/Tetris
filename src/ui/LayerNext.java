@@ -22,7 +22,10 @@ public class LayerNext extends Layer {
 	}
 	public void paint(Graphics g){
 		this.createWindow(g);
-		drawImageOfCenter(NEXT_ACT[this.dto.getNext()], g);
+		if(this.dto.isStart()){
+			drawImageOfCenter(NEXT_ACT[this.dto.getNext()], g);
+		}
+		
 		
 	}
 	
