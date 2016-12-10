@@ -10,6 +10,8 @@ public class LayerGame extends Layer {
 	
 	private static final Image ACT = new ImageIcon("graphics/game/rect.png").getImage();
 	
+	private static final Image PAUSE = new ImageIcon("graphics/string/pause.png").getImage();
+	
 	private static final int ACT_SIZE=32;
 
 	public LayerGame(int x, int y, int w, int h) {
@@ -27,7 +29,7 @@ public class LayerGame extends Layer {
 			for(int i=0;i<points.length;i++){
 				drawActByPoint(points[i].x,points[i].y,typeCode+1, g);
 			}
-			
+		}
 			//´òÓ¡µØÍ¼
 			boolean[][] map =this.dto.getGameMap();
 			for(int x = 0;x < map.length;x++){
@@ -37,7 +39,11 @@ public class LayerGame extends Layer {
 					}
 				}
 			}
-		}
+//			ÔÝÍ£
+			if(this.dto.isPause()){
+				g.drawImage(PAUSE, 430, 250, null);
+			}
+		
 	}
 	
 	private void drawActByPoint(int x,int y,int imgIdx, Graphics g){

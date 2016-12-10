@@ -40,12 +40,14 @@ public class JFrameSet extends JFrame {
 		this.dto=dto;
 		
 		
-		this.setTitle("等级控制");
+		this.setTitle("设置");
 		
 		this.setSize(400,150);
 		
 		//设置边界布局
 		this.setLayout(new BorderLayout());
+//		创建title
+		this.add(this.createTitlePanel(),BorderLayout.NORTH );
 		
 		this.add(createMainPanel(),BorderLayout.CENTER );
 //		添加按钮面
@@ -69,6 +71,18 @@ public class JFrameSet extends JFrame {
 		
 		
 		
+	}
+	
+	/**
+	 * @return 创建title
+	 */
+	private JPanel createTitlePanel() {
+		JPanel jp =new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JLabel jl=new JLabel("设置当前等级为：");
+		jl.setSize(200, 40);
+		jp.add(jl);
+		System.out.println(Integer.toString(nowLevel));
+		return jp;
 	}
 
 	/**

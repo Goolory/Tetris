@@ -31,6 +31,12 @@ public class PlayerControl extends KeyAdapter {
 		case KeyEvent.VK_RIGHT:
 			this.gameControl.keyRight();
 			break;
+		case KeyEvent.VK_SPACE:
+			this.gameControl.keyPause();
+			break;
+		case KeyEvent.VK_F5:
+			this.gameControl.keyF();
+			break;
 		default:
 			break;
 		}

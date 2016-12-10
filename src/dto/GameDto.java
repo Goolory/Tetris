@@ -47,8 +47,15 @@ public class GameDto {
 	 */
 	private int nowRemoveLine;
 	
+	/**
+	 * 开始
+	 */
 	private boolean start;
 	
+	/**
+	 * 暂停
+	 */
+	private boolean pause;
 	public GameDto(){
 		dtoInit();
 		
@@ -58,9 +65,7 @@ public class GameDto {
 	 * dto初始化
 	 */
 	public void dtoInit(){
-		//TODO
 		this.gameMap=new boolean[10][18];
-		//TODO 初始化所有游戏对象
 	}
 
 	public List<Player> getDbRecode() {
@@ -148,6 +153,14 @@ public class GameDto {
 
 	public void setStart(boolean start) {
 		this.start = start;
+	}
+
+	public boolean isPause() {
+		return pause;
+	}
+
+	public void channgePause() {
+		this.pause = !this.pause;
 	}
 	
 	

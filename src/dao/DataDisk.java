@@ -7,18 +7,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Arrays;
 import java.util.List;
 
 import dto.Player;
 
 public class DataDisk implements Data{
+	
+	private final static String FILE_PATH="save/recode.dot";
 
 	@Override
 	public List<Player> loadData() {
 		ObjectInputStream ois=null;
 		List<Player> players=null;
 		try {
-			ois=new ObjectInputStream(new FileInputStream("save/recode.dot"));
+			ois=new ObjectInputStream(new FileInputStream(FILE_PATH));
 			players=(List<Player>)ois.readObject();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,10 +37,16 @@ public class DataDisk implements Data{
 
 	@Override
 	public void saveData(Player player) {
+		//先取出数据
+		List<Player> players=this.loadData();
+		
+		players.add(player);
+		
+		
 		ObjectOutputStream oos = null;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream("save/recode.dot"));
-			oos.writeObject(player);
+			oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH));
+			oos.writeObject(players);
 		}  catch (Exception e) {
 			e.printStackTrace();
 		}finally{

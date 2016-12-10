@@ -30,7 +30,10 @@ public class GameService {
 	
 //	键盘控制旋转
 	public void keyUp() {
-		this.dto.getGameAct().round(this.dto.getGameMap());
+		synchronized(this.dto){
+			this.dto.getGameAct().round(this.dto.getGameMap());
+		}
+		
 	}
 
 //	键盘控制向下
@@ -59,7 +62,7 @@ public class GameService {
 //		判断是否升级
 		int rl=this.dto.getNowRemoveLine();
 		if(rl/20<20){
-			this.dto.setNowlevel(rl/20);
+			this.dto.setNowlevel(this.dto.getNowlevel()+rl/20);
 		}
 //		升级操作
 //		创建下一个方块
@@ -79,6 +82,7 @@ public class GameService {
 
 	private void afterLose() {
 		this.dto.setStart(false);
+		
 		
 	
 }
@@ -145,8 +149,19 @@ public class GameService {
 	public void keyRight() {
 			this.dto.getGameAct().move(1, 0,this.dto.getGameMap());
 	}
-	
-	
+	//暂停
+	public void keyPause() {
+		if(this.dto.isStart()){
+			this.dto.channgePause();
+		}
+		
+	}
+	public void keyF() {
+		if(this.dto.isStart()){
+			this.dto.setNowPoint(this.dto.getNowPoint()+500);;
+		}
+		
+	}
 	
 	
 	
@@ -168,12 +183,12 @@ public class GameService {
 	/**
 	 * 启动主线程
 	 */
-	public void startMainThread() {
+	public void startGame() {
 		GameAct act =new GameAct(random.nextInt(MAX_TYPE));
 		this.dto.setNext(random.nextInt(MAX_TYPE));
+//		this.dto.setGameMap();
 		dto.setGameAct(act);
 		dto.setStart(true);
-		
 	}
 	
 	
@@ -193,4 +208,8 @@ public class GameService {
 			this.dto.setNowRemoveLine(rmLine);
 			this.dto.setNowlevel(ly);
 		}
+
+		
+
+		
 }
