@@ -66,6 +66,9 @@ public class GameDto {
 	 */
 	public void dtoInit(){
 		this.gameMap=new boolean[10][18];
+		this.nowlevel=0;
+		this.nowPoint=0;
+		this.nowRemoveLine=0;
 	}
 
 	public List<Player> getDbRecode() {

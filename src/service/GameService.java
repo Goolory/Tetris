@@ -55,15 +55,16 @@ public class GameService {
 		}
 //		判断消行
 		int exp=this.plusPoint();
+//		判断是否升级
+		int rl=this.dto.getNowRemoveLine();
+		if(rl%20+exp>=20){
+			this.dto.setNowlevel(this.dto.getNowlevel()+1);
+		}
 //		算分操作，加分
 		this.dto.setNowPoint(this.dto.getNowPoint()+exp*20);
 //		消行数增加
 		this.dto.setNowRemoveLine(this.dto.getNowRemoveLine()+exp);
-//		判断是否升级
-		int rl=this.dto.getNowRemoveLine();
-		if(rl/20<20){
-			this.dto.setNowlevel(this.dto.getNowlevel()+rl/20);
-		}
+
 //		升级操作
 //		创建下一个方块
 		this.dto.getGameAct().init(this.dto.getNext());
@@ -189,6 +190,8 @@ public class GameService {
 //		this.dto.setGameMap();
 		dto.setGameAct(act);
 		dto.setStart(true);
+		//dto初始化
+		this.dto.dtoInit();
 	}
 	
 	

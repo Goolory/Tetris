@@ -1,7 +1,13 @@
 package ui;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 
 import javax.swing.JFrame;
 
@@ -40,9 +46,13 @@ public class JFrameGame extends JFrame {
 		
 		//设置默认panel
 		this.setContentPane(panelGame);
+		
+		new Bgm();
 		//默认改窗口为显示
 		this.setVisible(true);
 		
 	}
+
+	
 
 }

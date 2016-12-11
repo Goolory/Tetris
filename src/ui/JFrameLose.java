@@ -87,8 +87,8 @@ public class JFrameLose extends JFrame{
 			
 			public void actionPerformed(ActionEvent e) {
 				String name=text.getText();
-				if(name.length()>16||name==null){
-					errMsg.setText("请输入12字");
+				if(name.length()>16||name.length()<=0){
+					errMsg.setText("请输入12个字符以内");
 				}else{
 					gameControl.savePoint(name);
 					setVisible(false);

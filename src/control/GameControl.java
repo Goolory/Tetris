@@ -162,7 +162,7 @@ public class GameControl {
 					
 					panelGame.repaint();
 					
-				} catch (InterruptedException e) {
+				} catch (InterruptedException e) {   
 					e.printStackTrace();
 				}
 			}
