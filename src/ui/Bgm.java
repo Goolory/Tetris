@@ -16,7 +16,7 @@ public class Bgm extends JFrame{
 	Bgm(){
 		
 		try {
-			f=new File("music/bgm.mp3");
+			f=new File("music/bgm.wav");
 			uri=f.toURI();
 			url=uri.toURL();
 			AudioClip aau;
